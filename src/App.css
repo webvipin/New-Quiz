@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;  
+  scrollbar-width: thin;
+}
+.card {
+  text-align: center;
+  margin-top: 100vh;
+}
+
+.hader-title{
+  width: 100%;
+  text-align: center;
+  
+  padding: 10px;
+  background-color: #d2d2d2;
+  color: black;
+}
+
+a.btn.button-danger {
+    border: 2px solid;
+    background-color: blue;
+    color: white;
+}
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login.page {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  height: 100vh;
+}
+a.btn.btn-success {
+  margin: 10px;
+}
+.from-group {
+  margin: 10px;
+}
+.from-group {
+  margin: 10px;
+}
+h2{
+  margin: 10px;
+}
+.user_input{
+  width: 40vh;
+}
+.form-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+h3 {
+  text-align: center;
+  background-color: red;
+  margin: 20px;
+  width: 100%;
+  height: fit-content;
+}
+.card {
+  border: 2px solid black;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 100px;
+  box-shadow: 0px 0px 0px 2px black;
+}
+
+input.from-control {
+  width: 200px;
+  margin: 5px;
+}
+.header
+{
+  width: 100%;
+  background-color: rgb(4, 4, 4);
+  color: white;
+  padding: 1%;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #d2d2d2;
+  margin: 0;
+  padding: 0;
+}
+h3.footer_title {
+  margin: 0;
+  background-color: transparent;
+  padding: 10px;
+  text-transform: uppercase;
+}
+/* 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a{
+  text-decoration: inherit;
+  color: inherit;
+
+}
+.app
+{
+  min-height: 98.5vh;
+  border: 8px solid #39445a93;
+  margin: 5px;
+  padding: 5px;
+  
+} */
