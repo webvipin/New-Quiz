@@ -1,17 +1,115 @@
-import React from 'react'
-import './Header.css'
-import { Link } from 'react-router-dom'
+import React, {  useState } from "react";
+import { Button, MenuItem, TextField } from "@mui/material";
+import Categories from "../../Data/Categories";
+import {  useNavigate } from "react-router-dom";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import Wrapper from './style'
 
-const Header = () => {
+
+
+
+const Header = ({ name, setname, fetchQuestions }) => {
+  const [category, setCategory] = useState("");
+  const [Difficulty, setDifficulty] = useState("");
+  const [error, seterror] = useState(false);
+
+  const Stories = () =>{
+    let API = "https://quizattendace.onrender.com/api/quiz/read";
+
+    const fetchQuestions =async (url)=>{
+      try{
+        const res = fetch(url);
+        const data =(await res).json();
+        console.log(data)
+      }catch(error){
+        console.log(error)
+      }
+    }
+  }
+  
+  useState((url)=>{
+
+    fetchQuestions(API)
+  },[]);
+   
+  
+  
+  const navigate = useNavigate()
+  const handleSubmit =() =>{
+    if(!category|| !Difficulty || !name){
+      seterror(true);
+      return;
+    }
+    else{
+      seterror(false)
+      fetchQuestions(category,Difficulty);
+
+       navigate('/quiz')
+    }
+  }
+
   return (
-    <div className='header'>
-    <Link to ="/" className='title' >
-    Quiz-Hub
-    </Link>
-    <hr className='divider'/>
-    </div>
-     
-  )
-}
+    <Wrapper>
+    <div className="top">
+    <p>Quiz-Hub</p>
+      <hr className="divider" />
 
-export default Header
+      <div className="contact">
+        <div className="setting">
+          <span>Quiz-Settings</span>
+          <div className="setting_select">
+          {error && <ErrorMessage>Please Fill all the feilds</ErrorMessage>}
+         
+            <TextField
+              style={{ marginBottom: 25 }}
+              label="Enter your Name"
+              variant="outlined"
+              onChange={(e) => setname(e.target.value)}
+            />
+            <TextField
+              select
+              label="select Category"
+              variant="outlined"
+              style={{ marginBottom: 30 }}
+              onChange={(e) => setCategory(e.target.value)}
+              value={category}
+            >
+              {Categories.map((cat) => (
+                <MenuItem key={cat.category} value={cat.value}>
+                  {cat.category}
+                </MenuItem>
+              ))}
+            </TextField>
+
+            <TextField
+              select
+              label="Select Difficulty"
+              variant="outlined"
+              style={{ marginBottom: 30 }}
+              onChange={(e) => setDifficulty(e.target.value)}
+              value={Difficulty}
+              
+              >
+              <MenuItem key="Easy" value="easy">
+              Eassy
+              </MenuItem>
+              <MenuItem key="Medium" value="medium">
+              Medium
+              </MenuItem>
+              <MenuItem key="Hard" value="hard">
+              Hard
+              </MenuItem>
+              </TextField>
+              <Button variant="contained"  onClick={handleSubmit}color="primary" size="large">
+              Start Quiz
+              </Button>
+              </div>
+              </div>
+              <img src="/new.svg" className="banner" alt="banner"></img>
+              </div>
+              </div>
+              </Wrapper>
+              );
+};
+
+export default Header;
