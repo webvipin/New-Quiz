@@ -1,0 +1,22 @@
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  background: #F4F4FE;
+  width: -webkit-fill-available;
+  text-align: center;
+  margin: 2vh;
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 60vh;
+    text-align: center;
+    margin:10vh;
+  }
+  
+  img.New {
+    height: 150px;
+    padding: 1vh;
+}

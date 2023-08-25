@@ -1,10 +1,11 @@
 import React from 'react'
+import './Footer.css'
 
 
-export const footer = () => {
+const Footer = () => {
   return (
-    <div style={{textAlign:'center' }}>Create @2023 </div>
-
+    <div className='Footer'>@copy2025</div>
   )
 }
 
+export default Footer

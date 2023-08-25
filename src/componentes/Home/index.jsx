@@ -7,13 +7,14 @@ import Four from "../../pic/Four.jpg"
 import './index.css'
 
 const Home = () => {
-  const usenavigate = useNavigate();
-  useEffect(() => {
-    let username = sessionStorage.getItem("username");
-    if (username === "" || username === null) {
-      usenavigate("/");
-    }
-  }, []);
+  // const usenavigate = useNavigate();
+  // useEffect(() => {
+  //   let username = sessionStorage.getItem("username");
+  //   if (username === "" || username === null) {
+  //     usenavigate("/");
+  //   }
+  // }, []);
+
   return (
     <div>
       <div className="instructions container">
@@ -71,6 +72,6 @@ const Home = () => {
       </div>
     </div>
   );
-};
+            };
 
 export default Home;
