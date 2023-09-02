@@ -1,0 +1,31 @@
+h1.setStyle{
+    font-size: 32px;
+    background: #e7dfdf;
+    text-align: center;
+    padding: 2px;
+}
+
+p.work {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 100px;
+    font-size: xxx-large;
+    color: red;
+}
+
+a.eor {
+    font-size: 5vh;
+    text-decoration: none;
+    color: black;
+    border: 2px solid;
+    display: flex;
+    /* width: 8ch; */
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 59px;
+}

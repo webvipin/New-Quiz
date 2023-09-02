@@ -1,6 +1,6 @@
+import { Link, json, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
-import {  Link, Navigate, json, useNavigate } from "react-router-dom";
 import Wrapper from "./style.js";
 
 const Login = () => {
@@ -12,9 +12,7 @@ const Login = () => {
   const ProceedLogin = (e) => {
     e.preventDefault();
     if (validate()) {
-       console.log("proceed");
-     
-
+      console.log("proceed");
       axios
         .post("https://server-api1-li2k.onrender.com/api/user/login", {
           contact,
@@ -22,28 +20,27 @@ const Login = () => {
         })
         .then((res) => {
           console.log(res.data);
-          if(res.data)
-          {
-            localStorage.setItem("login-user", JSON.stringify(res.data))
-             navigate("/Header")
+          if (res.data.role ==="faculty" ) {
+            localStorage.setItem("login-user", JSON.stringify(res.data));
+            alert("Welcome to Faculty");
+            navigate("/Admin");
+          }else if(res.data.role ==="student" ) {
            
-          }
-          else{
-            alert("Invalid user");
-          }
+            alert("Welcome to Student");
+            navigate("/Home");
           
-          
+          }
         })
         .catch((err) => {
           console.log(err.message);
         })
         .finally(() => {
-
-         // console.log("Login succesfuly");
+          console.log("Login succesfuly");
+      
         });
     }
   };
-  const  validate = () => {
+  const validate = () => {
     let result = true;
     if (contact === "" && password === "") {
       result = false;
@@ -65,9 +62,11 @@ const Login = () => {
 
   return (
     <Wrapper>
-   <header><h1>Quiz Hub</h1></header>
+      <header>
+        <h1>Quiz Hub</h1>
+      </header>
 
-      <div className="loginContainer">
+      <div className="LoginContainer">
         <form>
           <h2>Login</h2>
           <input
@@ -90,14 +89,13 @@ const Login = () => {
             value="Login"
             onClick={ProceedLogin}
           />
-          <span>
-           Don't have an account ? </span>
-           <Link className="btn" to="/">Register</Link>
-          
+          <span>Don't have an account ? </span>
+          <Link className="btn" to="/">
+            Register
+          </Link>
         </form>
       </div>
     </Wrapper>
-    
   );
 };
 

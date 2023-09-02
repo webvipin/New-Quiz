@@ -2,46 +2,24 @@ import React, {  useState } from "react";
 import { Button, MenuItem, TextField } from "@mui/material";
 import Categories from "../../Data/Categories";
 import {  useNavigate } from "react-router-dom";
-import ErrorMessage from "../ErrorMessage/ErrorMessage";
+// import ErrorMessage from "../ErrorMessage/";
 import Wrapper from './style'
-
-
-
 
 const Header = ({ name, setname, fetchQuestions }) => {
   const [category, setCategory] = useState("");
   const [Difficulty, setDifficulty] = useState("");
-  const [error, seterror] = useState(false);
+  // const [error, seterror] = useState(false);
 
-  const Stories = () =>{
-    let API = "https://quizattendace.onrender.com/api/quiz/read";
-
-    const fetchQuestions =async (url)=>{
-      try{
-        const res = fetch(url);
-        const data =(await res).json();
-        console.log(data)
-      }catch(error){
-        console.log(error)
-      }
-    }
-  }
-  
-  useState((url)=>{
-
-    fetchQuestions(API)
-  },[]);
-   
   
   
   const navigate = useNavigate()
   const handleSubmit =() =>{
     if(!category|| !Difficulty || !name){
-      seterror(true);
+      // seterror(true);
       return;
     }
     else{
-      seterror(false)
+      // seterror(false)
       fetchQuestions(category,Difficulty);
 
        navigate('/quiz')
@@ -51,14 +29,14 @@ const Header = ({ name, setname, fetchQuestions }) => {
   return (
     <Wrapper>
     <div className="top">
-    <p>Quiz-Hub</p>
+ <p>Quiz-Hub</p>
       <hr className="divider" />
 
       <div className="contact">
         <div className="setting">
           <span>Quiz-Settings</span>
           <div className="setting_select">
-          {error && <ErrorMessage>Please Fill all the feilds</ErrorMessage>}
+       
          
             <TextField
               style={{ marginBottom: 25 }}
@@ -99,6 +77,7 @@ const Header = ({ name, setname, fetchQuestions }) => {
               <MenuItem key="Hard" value="hard">
               Hard
               </MenuItem>
+             
               </TextField>
               <Button variant="contained"  onClick={handleSubmit}color="primary" size="large">
               Start Quiz
@@ -113,3 +92,5 @@ const Header = ({ name, setname, fetchQuestions }) => {
 };
 
 export default Header;
+
+// {error && <ErrorMessage>Please Fill all the feilds</ErrorMessage>}

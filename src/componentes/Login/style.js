@@ -5,7 +5,7 @@ import { styled } from "styled-components";
 const Wrapper = styled.section`
 margin:0;
 
-.loginContainer{
+.LoginContainer{
     margin: 30px auto;
     display: flex;
     flex : 1;

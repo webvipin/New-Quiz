@@ -12,7 +12,29 @@ const Wrapper = styled.section`
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     cursor: pointer;
 }
-.top {
+input.T1  
+{
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.4375em;
+    letter-spacing: 0.00938em;
+    color: rgba(0, 0, 0, 0.87);
+    box-sizing: border-box;
+    position: relative;
+    cursor: text;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    align-items: center;
+    box-align: center;
+    align: center;
+    align-items: center;
+    position: relative;
+    border-radius: 4px;
+}
+.to {
     display: flex;
     flex-direction: column;
     align-items: center;
